@@ -11,21 +11,24 @@
 
   <body>
 
-    <div class="navbar navbar-expand navbar-default navbar-static-top border-bottom">
+  <div class="wrapper">
+    <div class="content">
       <div class="container">
-        <%= link_to "BBQ!", root_path, class: 'navbar-brand' %>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <% if user_signed_in? %>
-              <li><%= link_to 'Профиль', current_user, class: "nav-link link-secondary ms-3" %></li>
-              <li><%= link_to 'Выйти', destroy_user_session_path,
-                      method: :delete, class: "nav-link link-secondary ms-3" %></li>
-            <% else %>
-              <li><%= link_to 'Войти', new_user_session_path, class: "nav-link link-secondary ms-3" %></li>
-              <li><%= link_to 'Зарегистрироваться',
-                      new_user_registration_path, class: "nav-link link-secondary ms-3" %></li>
-            <% end %>
-          </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+          <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
+          <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+              <% if user_signed_in? %>
+                <li><%= link_to 'Профиль', current_user, class: "nav-link link-secondary ms-3" %></li>
+                <li><%= link_to 'Выйти', destroy_user_session_path,
+                        method: :delete, class: "nav-link link-secondary ms-3" %></li>
+              <% else %>
+                <li><%= link_to 'Войти', new_user_session_path, class: "nav-link link-secondary ms-3" %></li>
+                <li><%= link_to 'Зарегистрироваться',
+                        new_user_registration_path, class: "nav-link link-secondary ms-3" %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -33,7 +36,6 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
-
           <%= yield %>
         </div>
         <div class="col-lg-3">
@@ -41,7 +43,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2021</p>
+        <p>&copy; <%= t'app.company' %> 2021</p>
       </footer>
 
     </div> <!-- /container -->
