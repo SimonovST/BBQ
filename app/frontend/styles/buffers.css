@@ -1,4 +1,3 @@
-/* Buffers */
 .buffer-top {
   margin-top: 20px;
 }
@@ -12,20 +11,19 @@
   margin-bottom: 20px;
 }
 
-/* Avatars for users & events */
 .img-icon, .img-icon-small {
   height: 50px;
   width: auto;
   border-radius: 50%;
 }
 
-/* Thumbnails for events/index */
 .thumbnail {
   position: relative;
   background: transparent;
   padding: 0;
   overflow: hidden;
   border-radius: 5px;
+  margin-bottom: 1.5em;
 }
 
 .thumbnail h3 {
@@ -36,5 +34,5 @@
 }
 
 .thumbnail-inner {
-  padding: 20px 4px 4px 4px;
+  padding: 20px 4px 4px;
 }
