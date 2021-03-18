@@ -1,16 +1,14 @@
 ru:
-  # Перевод моделей
   activerecord:
-    # Перевод названия моделей
     models:
       user: 'Пользователь'
       event: 'Событие'
 
-    # Перевод названий аттрибутов моделей
     attributes:
       user:
         email: 'Email'
         name: 'Имя'
+        avatar: 'Аватарка'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
       event:
@@ -18,10 +16,9 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
-    # Перевод сообщений, которые отправляет контроллер
-  controllers: 
+  controllers:
     events:
-      created: 'Вы создали новое мероприятие'
+      created: 'Событие было успешно создано'
       updated: 'Вы обновили мероприятие'
       destroyed: 'Вы удалили мероприятие :('
     users:
@@ -34,6 +31,8 @@ ru:
       created: 'Вы подписаны на это событие'
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
+
+
   app:
     name: 'Шашлыки'
     company: 'Хороший программист'
@@ -41,10 +40,12 @@ ru:
     one: '%{count} ошибка'
     few: '%{count} ошибки'
     many: '%{count} ошибок'
+    
   comments:
-    comment:
-      destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+   comment:
+    destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+
 
