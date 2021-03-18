@@ -37,6 +37,6 @@ module Bbq1
     config.i18n.available_locales = [:ru]
     config.i18n.default_locale = :ru
 
-    config.time_zone = 'Moscow'
+    config.time_zone = 'Ekaterinburg'
   end
 end
