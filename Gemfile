@@ -12,13 +12,7 @@ gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
-# Задеплоить на хероку bundle install --without production
-# group :production do
-#   gem 'pg'
-# end
-# heroku apps:create megabbq
-# git push heroku master
-# heroku run rake db:migrate
+gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
