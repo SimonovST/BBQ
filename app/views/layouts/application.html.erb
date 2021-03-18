@@ -1,37 +1,50 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Bbq1</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bbq</title>
+  <script src="https://use.fontawesome.com/a75a7204ad.js"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=d4eccc0c-6ed2-4aa3-95b9-3d0c6d24bd78&lang=ru_RU">
+  </script>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_pack_tag 'application', media: 'all' %>
+  <%= javascript_pack_tag 'application' %>
+</head>
 
-    <%= stylesheet_pack_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
-  </head>
+<body>
+<div class="wrapper">
+  <div class="content">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <body>
-
-  <div class="wrapper">
-    <div class="content">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-          <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
-          <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav">
-              <% if user_signed_in? %>
-                <li><%= link_to 'Профиль', current_user, class: "nav-link link-secondary ms-3" %></li>
-                <li><%= link_to 'Выйти', destroy_user_session_path,
-                        method: :delete, class: "nav-link link-secondary ms-3" %></li>
-              <% else %>
-                <li><%= link_to 'Войти', new_user_session_path, class: "nav-link link-secondary ms-3" %></li>
-                <li><%= link_to 'Зарегистрироваться',
-                        new_user_registration_path, class: "nav-link link-secondary ms-3" %></li>
-              <% end %>
-            </ul>
-          </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Профиль', current_user, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to 'Войти', new_user_session_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'nav-link' %>
+              </li>
+            <% end %>
+          </ul>
         </div>
-      </div>
-    </div>
+      </nav>
+
 
     <div class="container">
       <div class="row">
