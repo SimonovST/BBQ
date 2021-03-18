@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :events
   has_many :comments, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
 
   validates :name, presence: true, length: {maximum: 35}
   # validates :email, presence: true, length: {maximum: 255}
