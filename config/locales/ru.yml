@@ -33,6 +33,8 @@ ru:
       created: 'Событие было успешно создано'
       updated: 'Вы обновили мероприятие'
       destroyed: 'Вы удалили мероприятие :('
+      edit:
+        are_you_sure: 'Вы уверены?'
     users:
       updated: 'Вы обновили свой профиль'
     comments:

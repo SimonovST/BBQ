@@ -36,8 +36,19 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event.destroy
-    redirect_to events_url, notice: I18n.t('controllers.events.destroyed')
+    message = {notice: I18n.t('controllers.events.destroyed')}
+
+    if current_user_can_edit?(@event)
+      @event.destroy!
+    else
+      message = {alert: I18n.t('controllers.events.error')}
+    end
+
+    redirect_to @event, message
+
+    # user = @event.user
+    # @event.destroy
+    # redirect_to user_path(user), notice: I18n.t('controllers.events.destroyed')
   end
 
   private
