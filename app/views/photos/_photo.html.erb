@@ -1,3 +1,4 @@
+<!-- паршал для отображения фотки одной загруженных на странице события -->
 <div class="col-md-3 event-photo buffer-both">
   <%#= link_to image_tag event_thumb(@event)%>
   <% unless photo.photo.url.nil?%>
@@ -7,7 +8,7 @@
         ) if current_user_can_edit?(photo) %>
     <% image_footer = "Добавил #{render partial: 'users/user', object: photo.user} #{delete_photo}" %>
     <% image_title = "Фотографии события: #{photo.event.title}" %>
-    <%= link_to image_tag(photo.photo.thumb.url, class: "img-fluid"), photo.photo.url,
+    <%#= link_to image_tag(photo.photo.thumb.url, class: "img-fluid"), photo.photo.url,
       data: {
         toggle: 'lightbox',
         footer: image_footer,
