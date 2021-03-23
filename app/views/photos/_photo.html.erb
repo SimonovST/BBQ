@@ -1,5 +1,21 @@
-<div class="event-photo buffer-both">
-  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url %>
-
-  Добавил <%= render partial: 'users/user', object: photo.user %>
+<div class="col-md-3 event-photo buffer-both">
+  <% unless photo.photo.url.nil?%>
+    <% delete_photo =
+        link_to(fa_icon('trash'), event_photo_path(photo.event, photo),
+                method: :delete, data: { confirm: t('.destroy_confirm') }
+        ) if current_user_can_edit?(photo) %>
+    <% image_footer = "Добавил #{render partial: 'users/user', object: photo.user} #{delete_photo}" %>
+    <% image_title = "Фотографии события: #{photo.event.title}" %>
+    <%= link_to image_tag(photo.photo.thumb.url, class: "img-fluid"), photo.photo.url,
+      data: {
+        toggle: 'lightbox',
+        footer: image_footer,
+        title: image_title,
+        gallery: 'example-gallery',
+        type: 'image',
+        alwaysShowClose: 'true'
+      } %>
+  <% else %>
+   <%= image_tag(asset_pack_path('media/images/event_thumb.jpg')) %>
+  <% end %>
 </div>

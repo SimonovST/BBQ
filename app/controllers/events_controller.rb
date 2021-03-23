@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:edit, :update, :destroy, :show]
+
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_event, only: [:show]
   before_action :set_current_user_event, only: [:edit, :update, :destroy]
@@ -17,8 +19,14 @@ class EventsController < ApplicationController
     @event = current_user.events.build
   end
 
+
+  def edit
+  end
+
   def create
     @event = current_user.events.build(event_params)
+
+    authorize @event
 
     if @event.save
       redirect_to @event, notice: I18n.t('controllers.events.created')

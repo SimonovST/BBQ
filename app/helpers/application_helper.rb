@@ -1,5 +1,5 @@
 module ApplicationHelper
-    def bootstrap_flash(opts = {})
+  def bootstrap_flash(opts = {})
     flash.each do |msg_type, message|
       concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)}", role: "alert") do
         concat content_tag(:button, '×', class: "close", data: { dismiss: 'alert' })
@@ -13,7 +13,7 @@ module ApplicationHelper
     if user.avatar?
       user.avatar.url
     else
-      asset_pack_path('media/images/user.png')
+      asset_pack_path('media/images/mangal.png')
     end
   end
 
@@ -21,10 +21,9 @@ module ApplicationHelper
     if user.avatar.file.present?
       user.avatar.thumb.url
     else
-      asset_pack_path('media/images/user.png')
+      asset_pack_path('media/images/mangal.png')
     end
   end
-
 
   def event_photo(event)
     photos = event.photos.persisted
@@ -42,9 +41,15 @@ module ApplicationHelper
     if photos.any?
       photos.sample.photo.thumb.url
     else
-      asset_pack_path('media/images/event_thumb.jpg')
+      asset_path('event_thumb.jpg')
     end
   end
+
+  # def minimum_password_length
+  #   if @minimum_password_length
+  #    " Пароль минимум #{@minimum_password_length} символов"
+  #   end
+  # end
 
   def fa_icon(icon_class)
     content_tag 'span', '', class: "fa fa-#{icon_class}"
