@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:edit, :update, :destroy, :show]
+  # before_action :set_event, only: [:edit, :update, :destroy, :show]
 
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_event, only: [:show]
