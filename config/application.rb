@@ -36,6 +36,7 @@ module Bbq1
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.available_locales = [:ru]
     config.i18n.default_locale = :ru
+    config.action_mailer.delivery_method = :mailjet
 
     config.time_zone = 'Ekaterinburg'
   end

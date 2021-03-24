@@ -13,6 +13,8 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
+gem 'mailjet'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 # group :production do
 #   gem 'pg', '>= 0.18', '< 2.0'
